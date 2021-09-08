@@ -1,0 +1,44 @@
+set font "ibm plex mono 12"
+set guioptions none
+
+# zathurarc-dark
+set notification-error-bg       "#32302f" # base01  # seem not work
+set notification-error-fg       "#dc322f" # red
+set notification-warning-bg     "#32302f" # base01
+set notification-warning-fg     "#dc322f" # red
+set notification-bg             "#32302f" # base01
+set notification-fg             "#b58900" # yellow
+
+set completion-group-bg         "#002b36" # base03
+set completion-group-fg         "#839496" # base0
+set completion-bg               "#f2e5bc" # base02
+set completion-fg               "#32302f" # base1
+set completion-highlight-bg     "#32302f" # base01
+set completion-highlight-fg     "#eee8d5" # base2
+
+# Define the color in index mode
+set index-bg                   "#f2e5bc" # base02
+set index-fg                   "#32302f" # base1
+set index-active-bg             "#32302f" # base01
+set index-active-fg             "#eee8d5" # base2
+
+set inputbar-bg                 "#32302f" # base01
+set inputbar-fg                 "#f2e5bc" # base2
+
+set statusbar-bg                "#32302f" # base02
+set statusbar-fg                "#f2e5bc" # base1
+
+set highlight-color             "#657b83" # base00  # hightlight match when search keyword(vim's /)
+set highlight-active-color      "#268bd2" # blue
+
+set default-bg                  "#f2e5bc" # base02
+set default-fg                  "#32302f" # base1
+# set render-loading              true
+# set render-loading-fg           "#f2e5bc" # base02
+# set render-loading-bg           "#f2e5bc" # base02
+
+# Recolor book content's color
+set recolor                     true
+set recolor-lightcolor          "#f2e5bc" # base02
+set recolor-darkcolor           "#32302f" # base1
+# set recolor-keephue             true      # keep original color
