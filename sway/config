@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango:IBM Plex Mono Medium 11
+font pango: IBM Plex Mono Medium 11
 
 ### Variables
 #
@@ -16,16 +16,16 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run | xargs swaymsg exec --
+set $menu wofi --show=drun --lines=5 --prompt=""
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/owl/Pictures/Wally/wallhaven-lqp9x2.jpg fill
+output * bg /home/owl/Pictures/wally/wallhaven-5dd6d3.jpg fill
 #
 # Example configuration:
 #
@@ -50,29 +50,28 @@ output * bg /home/owl/Pictures/Wally/wallhaven-lqp9x2.jpg fill
 #
 # Example configuration:
 #
-input "1267:12728:MSFT0002:00_04F3:31B8_Touchpad" {
-       dwt enabled
-       tap enabled
-       natural_scroll enabled
-       middle_emulation enabled
-}
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
 
+input "1267:12728:MSFT0002:00_04F3:31B8_Touchpad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
 input * {
 	xkb_layout "tr"
-} 
-#
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
-
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-
 #
 # Basics:
 #
@@ -96,7 +95,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -173,6 +172,18 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+#
+# Media Keys:
+#
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
 #
 # Scratchpad:
 #
@@ -211,24 +222,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-default_border pixel 1
-titlebar_border_thickness 0
-smart_borders on
-smart_gaps on
-#gaps inner 10
-#gaps outer 10
+default_border pixel 2
+
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-#
-#bar {
-#    position top
-#
+bar {
+#    position left
+
+    swaybar_command waybar
+}
 #    # When the status_command prints a new line to stdout, swaybar updates.
 #    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 #
 #    colors {
 #        statusline #ffffff
@@ -236,6 +244,5 @@ smart_gaps on
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
 #}
-#
 
 include /etc/sway/config.d/*

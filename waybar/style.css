@@ -1,0 +1,10 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: IBM Plex;
+  font-size: 14pt;
+  min-height: 0;
+  padding: 2px;
+  background-color: #1c1c1c;
+  color: #eeeeee;
+}

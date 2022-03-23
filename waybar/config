@@ -1,0 +1,53 @@
+{
+  "layer": "top",
+  "position": "left",
+  "width": "32",
+  "spacing": 6,
+//////////////////
+  "modules-left": ["sway/workspaces", "sway/mode",],
+  //"modules-center": [""],
+  "modules-right": ["backlight","network","battery","clock",],
+//////////////////////////////////////////////////
+  "sway/workspaces": {
+    "rotate": 90,
+  },
+  
+  "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " ({signalStrength}%)  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "rotate": 90,
+  },
+
+  "battery": {
+        "rotate": 90,
+	"states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {capacity}% {icon} ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+
+  "clock": {
+    "rotate": 90,
+  },
+
+  "backlight": {
+        // "device": "acpi_video1",
+        "rotate": 90,
+	"format": " {percent}% ",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+}
